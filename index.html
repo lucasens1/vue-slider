@@ -48,6 +48,7 @@
                     <!-- Carosello di thumbnail -->
                     <div class="my-carousel-images">
                         <!-- N image  -->
+                        <!-- Bonus 0 -->
                         <!-- :class aggiunge dinamicamente active all'index che corrisponde alla chiave curIndex inizializzata a 0 -->
                         <div v-for="(curImage,index) in images" class="my-carousel-item" :class="{ active: index === curIndex }" >
                             <img
@@ -96,7 +97,7 @@
                     <button id="my-order-button" class="btn btn-primary">
                     Inverti l'ordine di scorrimento
                     </button>
-                    <button id="my-stop-button" class="btn btn-primary">
+                    <button id="my-stop-button" class="btn btn-primary" @click="stopAuto">
                     Interrompi / Fai ripartire lo scorrimento
                     </button>
                 </div>

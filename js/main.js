@@ -1,9 +1,9 @@
 const { createApp } = Vue
-
 createApp({
     data() {
         return {
             curIndex : 0,
+            clock : null,
             images : [
               {
                 image: "img/01.webp",
@@ -33,8 +33,12 @@ createApp({
             ],
         };
       },
+      //Bonus 2
       created(){
         console.log("ciao")
+        this.clock = setInterval(()=> {
+          this.showNext();
+        },3000);
       },
       methods : {
         showNext : function () { 
@@ -51,8 +55,24 @@ createApp({
             this.curIndex--; 
           }
         },
+        //Bonus 1
         onScreen : function(index){
           this.curIndex = index;
         },
+        stopAuto(){
+        //Se clock non è null
+        if(this.clock !== null){
+          //rendo null clock
+          console.log("pausa")
+          clearInterval(this.clock);
+          this.clock = null;
+        }else {
+          //riparte il clock
+          console.log("riparte")
+          this.clock = setInterval(()=> {
+            this.showNext();
+          },3000);
+        }          
+        }
     }
 }).mount('#app')
