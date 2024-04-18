@@ -48,7 +48,8 @@
                     <!-- Carosello di thumbnail -->
                     <div class="my-carousel-images">
                         <!-- N image  -->
-                        <div v-for="curImage in images" class="my-carousel-item">
+                        <!-- :class aggiunge dinamicamente active all'index che corrisponde alla chiave curIndex inizializzata a 0 -->
+                        <div v-for="(curImage,index) in images" class="my-carousel-item" :class="{ active: index === curIndex }" >
                             <img
                                 class="img-fluid"
                                 :src="curImage.image"
@@ -70,17 +71,17 @@
                     <div class="my-thumbnails position-relative">
                         <!-- Bottone prev -->
                         <div class="my-previous position-absolute">
-                            <span class="my-prev-hook"></span>
+                            <span class="my-prev-hook" @click = "showPrev"></span>
                         </div>
                         <!-- Bottone next -->
                         <div class="my-next position-absolute">
-                            <span class="my-next-hook"></span>
+                            <span class="my-next-hook"  @click = "showNext"></span>
                         </div>
 
                         <!-- immagini interne -->
-                        <img v-for = "curImage in images"
-                            class="img-fluid my-thumbnail"
-                            
+                        <img v-for = "(curImage,index) in images"
+                            :class="{ active: index === curIndex }"
+                            class="img-fluid my-thumbnail"         
                             :src="curImage.image"
                             :alt="curImage.text"
                         />

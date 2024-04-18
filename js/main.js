@@ -3,7 +3,8 @@ const { createApp } = Vue
 createApp({
     data() {
         return {
-            message : 'Hello Vue!',
+            curIndex : 0,
+            activeIndex : 0,
             images : [
               {
                 image: "img/01.webp",
@@ -33,4 +34,23 @@ createApp({
             ],
         };
       },
+      created(){
+        console.log("ciao")
+      },
+      methods : {
+        showNext : function () { 
+          if(this.curIndex === this.images.length -1 ) { 
+            this.curIndex = 0 
+          } else { 
+            this.curIndex++; 
+          }
+        },     
+        showPrev : function() { 
+          if(this.curIndex === 0 ) { 
+            this.curIndex = movies.length - 1
+          } else { 
+            this.curIndex--; 
+          }
+        }     
+    }
 }).mount('#app')
