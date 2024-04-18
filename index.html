@@ -46,23 +46,21 @@
                     id="my-carousel"
                     >
                     <div class="my-carousel-images">
-                        <!-- immagini -->
-                        <!-- immagine 1 -->
-                        
-                        <div v-for="(curImage, index) in images" class="my-carousel-item active" carousel-item="1">
+                        <!-- Prima immagine  -->
+                        <div v-for="curImage in images" class="my-carousel-item active">
                         <img
                             class="img-fluid"
-                            :src="{{ curImage[index].image }}"
-                            :alt="{{ curImage[index].title }}"
+                            :src="curImage.image"
+                            :alt="curImage.title"
                         />
                         <div class="item-description px-3">
-                            <h2> {{ curImage[index].title }}</h2>
+                            <h2> {{ curImage.title }}</h2>
                             <p>
-                            {{ curImage[index].text }}
+                                {{ curImage.text }}
                             </p>
                         </div>
                         </div>
-                        <!-- /immagine 1 -->
+                        <!-- Immagine -->
 
                         <!-- immagine 2 -->
                         <!-- <div class="my-carousel-item" carousel-item="1">
