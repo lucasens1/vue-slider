@@ -46,7 +46,7 @@ createApp({
         },     
         showPrev : function() { 
           if(this.curIndex === 0 ) { 
-            this.curIndex = movies.length - 1
+            this.curIndex = this.images.length - 1
           } else { 
             this.curIndex--; 
           }
