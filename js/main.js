@@ -4,7 +4,6 @@ createApp({
     data() {
         return {
             curIndex : 0,
-            activeIndex : 0,
             images : [
               {
                 image: "img/01.webp",
@@ -51,6 +50,9 @@ createApp({
           } else { 
             this.curIndex--; 
           }
-        }     
+        },
+        onScreen : function(index){
+          this.curIndex = index;
+        },
     }
 }).mount('#app')

@@ -78,12 +78,14 @@
                             <span class="my-next-hook"  @click = "showNext"></span>
                         </div>
 
-                        <!-- immagini interne -->
+                        <!-- immagini Piccole -->
+                        <!-- Aggiungo dinamicamente la classe quando l'indice della classe è uguale al curIndex, e al click sull'immagine passo l'indice di quest'ultima ad una funzione onScreen dove al curIndex assegno il valore dell'index passato -->
                         <img v-for = "(curImage,index) in images"
                             :class="{ active: index === curIndex }"
                             class="img-fluid my-thumbnail"         
                             :src="curImage.image"
                             :alt="curImage.text"
+                            @click="onScreen(index)"
                         />
                         <!-- etc ... -->
                     </div>
