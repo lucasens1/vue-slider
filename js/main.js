@@ -59,7 +59,8 @@ createApp({
         onScreen : function(index){
           this.curIndex = index;
         },
-        stopAuto(){
+        //Bonus 2
+        stopAuto : function(){
         //Se clock non è null
         if(this.clock !== null){
           //rendo null clock
@@ -73,6 +74,21 @@ createApp({
             this.showNext();
           },3000);
         }          
+        },
+        //Bonus 3
+        reverseAuto : function(){
+          if(this.clock !== null){
+            console.log("pauso l'interval");
+          //copio quello che controllo quando non è null
+          clearInterval(this.clock);
+          this.clock = null;
+          }else {
+            console.log("reverso l'interval")
+            //setto un nuovo intervallo dopo averlo nullificato
+            this.clock = setInterval (() => {
+            this.showPrev();
+            },3000);
+          }       
         }
     }
 }).mount('#app')
